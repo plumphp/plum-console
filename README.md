@@ -2,7 +2,8 @@
     <img src="http://cdn.florian.ec/plum-logo.svg" alt="Plum" width="300">
 </h1>
 
-> PlumConsole integrates the Symfony Console component into Plum. Plum is a data processing pipeline for PHP.
+> PlumConsole integrates the [Symfony Console](http://symfony.com/doc/current/components/console/introduction.html)
+component into Plum. Plum is a data processing pipeline for PHP.
 
 [![Build Status](https://travis-ci.org/plumphp/plum-console.svg?branch=master)](https://travis-ci.org/plumphp/plum-console)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/plumphp/plum-console/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/plumphp/plum-console/?branch=master)
@@ -28,7 +29,8 @@ Please refer to the [Plum documentation](https://github.com/plumphp/plum/blob/ma
 information about Plum in general.
 
 PlumConsole currently contains two writers: `ConsoleProgressWriter` and `ConsoleTableWriter`. Both are intended to be
-used in an application that uses Symfony Console component.
+used in an application that use the
+[Symfony Console](http://symfony.com/doc/current/components/console/introduction.html) component.
 
 ### `ConsoleProgressWriter`
 
@@ -45,7 +47,7 @@ use Symfony\Component\Console\Helper\ProgressBar;
 $writer = new ConsoleProgressWriter(new ProgressBar($output, $reader->count()));
 ```
 
-### ConsoleTableWriter
+### `ConsoleTableWriter`
 
 `Plum\PlumConsole\ConsoleTableWriter` outputs the processed data as table in the console.
 
