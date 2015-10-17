@@ -1,5 +1,6 @@
-<img src="https://florian.ec/img/plum/logo.png" alt="Plum">
-====
+<h1 align="center">
+    <img src="http://cdn.florian.ec/plum-logo.svg" alt="Plum" width="300">
+</h1>
 
 > PlumConsole integrates the Symfony Console component into Plum. Plum is a data processing pipeline for PHP.
 
@@ -23,12 +24,15 @@ $ composer require plumphp/plum-console
 Usage
 -----
 
+Please refer to the [Plum documentation](https://github.com/plumphp/plum/blob/master/docs/index.md) for more
+information about Plum in general.
+
 PlumConsole currently contains two writers: `ConsoleProgressWriter` and `ConsoleTableWriter`. Both are intended to be
 used in an application that uses Symfony Console component.
 
-### ConsoleProgressWriter
+### `ConsoleProgressWriter`
 
-`ConsoleProgressWriter` displays the progress of a workflow in the console.
+`Plum\PlumConsole\ConsoleProgressWriter` displays the progress of a workflow in the console.
 
 ```php
 use Plum\PlumConsole\ConsoleProgressWriter;
@@ -43,7 +47,7 @@ $writer = new ConsoleProgressWriter(new ProgressBar($output, $reader->count()));
 
 ### ConsoleTableWriter
 
-`ConsoleTableWriter` outputs the processed data as table in the console.
+`Plum\PlumConsole\ConsoleTableWriter` outputs the processed data as table in the console.
 
 ```php
 use Plum\PlumConsole\ConsoleTableWriter;
@@ -56,9 +60,6 @@ $writer = new ConsoleTableWriter(new Table($output));
 // ConsoleTableWriter can automatically detect and set the headers
 $writer->autoDetectHeader();
 ```
-
-Please refer to the [Plum documentation](https://github.com/plumphp/plum/blob/master/docs/index.md) for more
-information about Plum.
 
 
 Change Log
