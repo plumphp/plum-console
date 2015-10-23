@@ -3,7 +3,7 @@
 </h1>
 
 > PlumConsole integrates the [Symfony Console](http://symfony.com/doc/current/components/console/introduction.html)
-component into Plum. Plum is a data processing pipeline for PHP.
+component into Plum. [Plum](https://github.com/plumphp/plum) is a data processing pipeline for PHP.
 
 [![Build Status](https://travis-ci.org/plumphp/plum-console.svg?branch=master)](https://travis-ci.org/plumphp/plum-console)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/plumphp/plum-console/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/plumphp/plum-console/?branch=master)
