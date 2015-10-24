@@ -13,6 +13,7 @@ namespace Plum\PlumConsole;
 
 use Mockery;
 use PHPUnit_Framework_TestCase;
+use stdClass;
 
 /**
  * ConsoleTableWriterTest
@@ -43,6 +44,8 @@ class ConsoleTableWriterTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      * @covers Plum\PlumConsole\ConsoleTableWriter::writeItem()
+     * @covers Plum\PlumConsole\ConsoleTableWriter::getKeys()
+     * @covers Plum\PlumConsole\ConsoleTableWriter::getValues()
      */
     public function writeItemAddsItemToTable()
     {
@@ -69,15 +72,59 @@ class ConsoleTableWriterTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      * @covers Plum\PlumConsole\ConsoleTableWriter::autoDetectHeader()
+     * @covers Plum\PlumConsole\ConsoleTableWriter::handleAutoDetectHeader()
      * @covers Plum\PlumConsole\ConsoleTableWriter::writeItem()
+     * @covers Plum\PlumConsole\ConsoleTableWriter::getKeys()
+     * @covers Plum\PlumConsole\ConsoleTableWriter::getValues()
      */
     public function writeItemDetectsHeaderWithAutoDetectHeaderOption()
     {
         $this->table->shouldReceive('setHeaders')->with(['a', 'b'])->once();
-        $this->table->shouldReceive('addRow')->with(['a' => 'foo', 'b' => 'bar'])->once();
+        $this->table->shouldReceive('addRow')->with(['foo', 'bar'])->once();
 
         $this->writer->autoDetectHeader();
         $this->writer->writeItem(['a' => 'foo', 'b' => 'bar']);
+    }
+
+    /**
+     * @test
+     * @covers Plum\PlumConsole\ConsoleTableWriter::writeItem()
+     * @covers Plum\PlumConsole\ConsoleTableWriter::handleAutoDetectHeader()
+     * @expectedException \InvalidArgumentException
+     */
+    public function writeItemShouldThrowExceptionIfAutoDetectHeaderOptionAndItemNotArray()
+    {
+        $this->writer->autoDetectHeader();
+        $this->writer->writeItem(new stdClass());
+    }
+
+    /**
+     * @test
+     * @covers Plum\PlumConsole\ConsoleTableWriter::writeItem()
+     * @covers Plum\PlumConsole\ConsoleTableWriter::getKeys()
+     * @covers Plum\PlumConsole\ConsoleTableWriter::getValues()
+     */
+    public function writeItemShouldWriteItemsIfTheyAreObjects()
+    {
+        $item    = new stdClass();
+        $item->a = 'foo';
+        $item->b = 'bar';
+
+        $this->table->shouldReceive('addRow')->with(['foo', 'bar'])->once();
+
+        $this->writer->setHeader(['a', 'b']);
+        $this->writer->writeItem($item);
+    }
+
+    /**
+     * @test
+     * @covers Plum\PlumConsole\ConsoleTableWriter::writeItem()
+     * @covers Plum\PlumConsole\ConsoleTableWriter::getKeys()
+     * @expectedException \InvalidArgumentException
+     */
+    public function writeItemShouldThroughExceptionIfInvalidTypeGiven()
+    {
+        $this->writer->writeItem('invalid');
     }
 
     /**
