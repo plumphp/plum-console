@@ -53,6 +53,21 @@ class ConsoleTableWriterTest extends PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers Plum\PlumConsole\ConsoleTableWriter::setHeader()
+     * @covers Plum\PlumConsole\ConsoleTableWriter::prepare()
+     */
+    public function setHeaderShouldManuallySetHeaders()
+    {
+        $this->table->shouldReceive('setHeaders')->with(['a', 'b'])->once();
+        $this->table->shouldReceive('addRow')->with(['foo', 'bar'])->once();
+
+        $this->writer->setHeader(['a', 'b']);
+        $this->writer->prepare();
+        $this->writer->writeItem(['foo', 'bar']);
+    }
+
+    /**
+     * @test
      * @covers Plum\PlumConsole\ConsoleTableWriter::autoDetectHeader()
      * @covers Plum\PlumConsole\ConsoleTableWriter::writeItem()
      */

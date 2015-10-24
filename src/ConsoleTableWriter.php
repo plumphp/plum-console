@@ -49,6 +49,18 @@ class ConsoleTableWriter implements WriterInterface
     }
 
     /**
+     * @param string[] $header
+     *
+     * @return ConsoleTableWriter
+     */
+    public function setHeader(array $header)
+    {
+        $this->header = $header;
+
+        return $this;
+    }
+
+    /**
      * @param bool $autoDetectHeader
      *
      * @return ConsoleTableWriter
@@ -86,6 +98,9 @@ class ConsoleTableWriter implements WriterInterface
      */
     public function prepare()
     {
+        if ($this->header !== null) {
+            $this->table->setHeaders($this->header);
+        }
     }
 
     /**
