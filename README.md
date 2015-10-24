@@ -63,6 +63,9 @@ $writer = new ConsoleTableWriter(new Table($output));
 
 // ConsoleTableWriter can automatically detect and set the headers
 $writer->autoDetectHeader();
+
+// Headers can also be set manually. This is required when the item is an object
+$writer->setHeader(['Country', 'City']);
 ```
 
 
