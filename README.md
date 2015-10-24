@@ -115,6 +115,11 @@ $formatter = new ExceptionFormatter($output, [
 Change Log
 ----------
 
+### Version 0.4 (24 October 2015)
+
+- [#2](https://github.com/plumphp/plum-console/pull/2) Add helper to print nice exception messages
+- [#3](https://github.com/plumphp/plum-console/pull/3) ConsoleTableWriter can now write object items
+
 ### Version 0.3 (15 May 2015)
 
 - Add `ConsoleTableWriter`
