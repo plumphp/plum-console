@@ -54,6 +54,7 @@ $writer = new ConsoleProgressWriter(new ProgressBar($output, $reader->count()));
 
 ```php
 use Plum\PlumConsole\ConsoleTableWriter;
+use Symfony\Component\Console\Helper\Table;
 
 // ...
 // $output is an instance of Symfony\Component\Console\Output\OutputInterface
@@ -62,6 +63,9 @@ $writer = new ConsoleTableWriter(new Table($output));
 
 // ConsoleTableWriter can automatically detect and set the headers
 $writer->autoDetectHeader();
+
+// Headers can also be set manually. This is required when the item is an object
+$writer->setHeader(['Country', 'City']);
 ```
 
 
