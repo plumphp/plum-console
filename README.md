@@ -28,9 +28,10 @@ Usage
 Please refer to the [Plum documentation](https://github.com/plumphp/plum/blob/master/docs/index.md) for more
 information about Plum in general.
 
-PlumConsole currently contains two writers: `ConsoleProgressWriter` and `ConsoleTableWriter`. Both are intended to be
-used in an application that use the
-[Symfony Console](http://symfony.com/doc/current/components/console/introduction.html) component.
+PlumConsole currently contains two writers: [`ConsoleProgressWriter`](#consoleprogresswriter) and 
+[`ConsoleTableWriter`](#consoletablewriter). Both are intended to be used in an application that use the
+[Symfony Console](http://symfony.com/doc/current/components/console/introduction.html) component. In addition it
+provides [`ExceptionFormatter`](#exceptionformatter), which helps you printing nice error messages to users.
 
 ### `ConsoleProgressWriter`
 
@@ -61,6 +62,44 @@ $writer = new ConsoleTableWriter(new Table($output));
 
 // ConsoleTableWriter can automatically detect and set the headers
 $writer->autoDetectHeader();
+```
+
+
+### `ExceptionFormatter`
+
+Plum does offer the option to catch exceptions. When this option is active the workflow can resume processing even if
+an item is causing errors. However, you have to manually output exceptions, which can be a tedious process.
+`Plum\PlumConsole\ExceptionFormatter` can help you with print exceptions.
+
+The granularity of the information can be controlling using the `--verbose` flag of Symfony Console. By default, the
+exception messages will be printed when the application is invoked using `--verbose` or `-v` and the messages and
+stack traces are printed when using `-vv`.
+
+```php
+use Plum\Plum\Workflow;
+use Plum\PlumConsole\ExceptionFormatter;
+
+$workflow = Workflow(['resumeOnError' => true]);
+// Build workflow
+$result = $workflow->process($reader);
+
+$formatter = new ExceptionFormatter($output);
+$formatter->outputExceptions($result);
+```
+
+The formatter offers options to configure both the granularity when messages and stack traces are shown and let you
+configure how they are printed. The following example shows all available options and the default values. Please note,
+that `messageTemplate` and `traceTemplate` are being printed using `sprintf()`.
+
+```php
+use Plum\PlumConsole\ExceptionFormatter;
+
+$formatter = new ExceptionFormatter($output, [
+    'minMessageVerbosity' => OutputInterface::VERBOSITY_VERBOSE,
+    'minTraceVerbosity'   => OutputInterface::VERBOSITY_VERY_VERBOSE,
+    'messageTemplate'     => '<error>%s</error>',
+    'traceTemplate'       => '%s',
+]);
 ```
 
 

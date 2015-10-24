@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * This file is part of plumphp/plum-console.
+ *
+ * (c) Florian Eckerstorfer <florian@eckerstorfer.co>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Plum\PlumConsole;
 
 use Mockery;
