@@ -69,9 +69,9 @@ $writer->autoDetectHeader();
 
 Plum does offer the option to catch exceptions. When this option is active the workflow can resume processing even if
 an item is causing errors. However, you have to manually output exceptions, which can be a tedious process.
-`Plum\PlumConsole\ExceptionFormatter` can help you with print exceptions.
+`Plum\PlumConsole\ExceptionFormatter` can help you printing exceptions.
 
-The granularity of the information can be controlling using the `--verbose` flag of Symfony Console. By default, the
+The granularity of the information can be controlled using the `--verbose` flag of Symfony Console. By default, the
 exception messages will be printed when the application is invoked using `--verbose` or `-v` and the messages and
 stack traces are printed when using `-vv`.
 
@@ -83,6 +83,8 @@ $workflow = Workflow(['resumeOnError' => true]);
 // Build workflow
 $result = $workflow->process($reader);
 
+// $output is an instance of Symfony\Component\Console\Output\OutputInterface
+
 $formatter = new ExceptionFormatter($output);
 $formatter->outputExceptions($result);
 ```
@@ -93,6 +95,9 @@ that `messageTemplate` and `traceTemplate` are being printed using `sprintf()`.
 
 ```php
 use Plum\PlumConsole\ExceptionFormatter;
+use Symfony\Component\Console\Output\OutputInterface;
+
+// $output is an instance of Symfony\Component\Console\Output\OutputInterface 
 
 $formatter = new ExceptionFormatter($output, [
     'minMessageVerbosity' => OutputInterface::VERBOSITY_VERBOSE,
