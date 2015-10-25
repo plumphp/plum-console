@@ -14,9 +14,8 @@ namespace Plum\PlumConsole;
 use Mockery;
 
 /**
- * ConsoleProgressWriterTest
+ * ConsoleProgressWriterTest.
  *
- * @package   Plum\Plum\Writer
  * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright 2014 Florian Eckerstorfer
  * @group     unit
@@ -32,7 +31,7 @@ class ConsoleProgressWriterTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->progressBar = Mockery::mock('Symfony\Component\Console\Helper\ProgressBar');
-        $this->writer = new ConsoleProgressWriter($this->progressBar);
+        $this->writer      = new ConsoleProgressWriter($this->progressBar);
     }
 
     /**

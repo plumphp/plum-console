@@ -17,9 +17,8 @@ use Plum\Plum\Writer\WriterInterface;
 use Symfony\Component\Console\Helper\Table;
 
 /**
- * ConsoleTableWriter
+ * ConsoleTableWriter.
  *
- * @package   Plum\PlumConsole
  * @author    Florian Eckerstorfer
  * @copyright 2015 Florian Eckerstorfer
  */
@@ -78,8 +77,6 @@ class ConsoleTableWriter implements WriterInterface
      * Write the given item.
      *
      * @param mixed $item
-     *
-     * @return void
      */
     public function writeItem($item)
     {
@@ -95,7 +92,6 @@ class ConsoleTableWriter implements WriterInterface
     /**
      * Prepare the writer.
      *
-     * @return void
      *
      * @codeCoverageIgnore
      */
@@ -108,8 +104,6 @@ class ConsoleTableWriter implements WriterInterface
 
     /**
      * Finish the writer.
-     *
-     * @return void
      */
     public function finish()
     {
@@ -140,7 +134,7 @@ class ConsoleTableWriter implements WriterInterface
     {
         if (is_array($item)) {
             return array_keys($item);
-        } else if ($this->header && is_object($item)) {
+        } elseif ($this->header && is_object($item)) {
             return $this->header;
         }
 

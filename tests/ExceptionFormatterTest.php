@@ -17,9 +17,8 @@ use PHPUnit_Framework_TestCase;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * ExceptionFormatterTest
+ * ExceptionFormatterTest.
  *
- * @package   Plum\PlumConsole
  * @author    Florian Eckerstorfer
  * @copyright 2015 Florian Eckerstorfer
  * @group     unit

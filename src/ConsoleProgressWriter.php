@@ -15,9 +15,8 @@ use Plum\Plum\Writer\WriterInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
 
 /**
- * ConsoleProgressWriter
+ * ConsoleProgressWriter.
  *
- * @package   Plum\PlumConsole
  * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright 2014-2015 Florian Eckerstorfer
  */
@@ -40,8 +39,6 @@ class ConsoleProgressWriter implements WriterInterface
      * Write the given item.
      *
      * @param mixed $item
-     *
-     * @return void
      */
     public function writeItem($item)
     {
@@ -50,8 +47,6 @@ class ConsoleProgressWriter implements WriterInterface
 
     /**
      * Prepare the writer.
-     *
-     * @return void
      */
     public function prepare()
     {
@@ -60,8 +55,6 @@ class ConsoleProgressWriter implements WriterInterface
 
     /**
      * Finish the writer.
-     *
-     * @return void
      */
     public function finish()
     {

@@ -16,9 +16,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Throwable;
 
 /**
- * ExceptionFormatter
+ * ExceptionFormatter.
  *
- * @package   Plum\PlumConsole
  * @author    Florian Eckerstorfer
  * @copyright 2015 Florian Eckerstorfer
  */
