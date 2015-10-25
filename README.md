@@ -6,6 +6,7 @@
 component into Plum. [Plum](https://github.com/plumphp/plum) is a data processing pipeline for PHP.
 
 [![Build Status](https://travis-ci.org/plumphp/plum-console.svg?branch=master)](https://travis-ci.org/plumphp/plum-console)
+[![Windows Build status](https://ci.appveyor.com/api/projects/status/3n5xf36jx2mt32l7?svg=true)](https://ci.appveyor.com/project/florianeckerstorfer/plum-console)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/plumphp/plum-console/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/plumphp/plum-console/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/plumphp/plum-console/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/plumphp/plum-console/?branch=master)
 
