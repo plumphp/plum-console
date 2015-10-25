@@ -16,9 +16,8 @@ use PHPUnit_Framework_TestCase;
 use stdClass;
 
 /**
- * ConsoleTableWriterTest
+ * ConsoleTableWriterTest.
  *
- * @package   Plum\PlumConsole
  * @author    Florian Eckerstorfer
  * @copyright 2015 Florian Eckerstorfer
  * @group     unit
