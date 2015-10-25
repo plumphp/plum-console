@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php":             ">=5.4",
+    "php":             ">=5.5",
     "symfony/console": "~2.5",
     "plumphp/plum":    "~0.2",
     "cocur/vale":      "~0.2"
