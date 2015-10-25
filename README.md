@@ -9,6 +9,7 @@ component into Plum. [Plum](https://github.com/plumphp/plum) is a data processin
 [![Windows Build status](https://ci.appveyor.com/api/projects/status/3n5xf36jx2mt32l7?svg=true)](https://ci.appveyor.com/project/florianeckerstorfer/plum-console)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/plumphp/plum-console/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/plumphp/plum-console/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/plumphp/plum-console/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/plumphp/plum-console/?branch=master)
+[![StyleCI](https://styleci.io/repos/30671736/shield)](https://styleci.io/repos/30671736)
 
 Developed by [Florian Eckerstorfer](https://florian.ec) in Vienna, Europe.
 
@@ -29,7 +30,7 @@ Usage
 Please refer to the [Plum documentation](https://github.com/plumphp/plum/blob/master/docs/index.md) for more
 information about Plum in general.
 
-PlumConsole currently contains two writers: [`ConsoleProgressWriter`](#consoleprogresswriter) and 
+PlumConsole currently contains two writers: [`ConsoleProgressWriter`](#consoleprogresswriter) and
 [`ConsoleTableWriter`](#consoletablewriter). Both are intended to be used in an application that use the
 [Symfony Console](http://symfony.com/doc/current/components/console/introduction.html) component. In addition it
 provides [`ExceptionFormatter`](#exceptionformatter), which helps you printing nice error messages to users.
@@ -102,7 +103,7 @@ that `messageTemplate` and `traceTemplate` are being printed using `sprintf()`.
 use Plum\PlumConsole\ExceptionFormatter;
 use Symfony\Component\Console\Output\OutputInterface;
 
-// $output is an instance of Symfony\Component\Console\Output\OutputInterface 
+// $output is an instance of Symfony\Component\Console\Output\OutputInterface
 
 $formatter = new ExceptionFormatter($output, [
     'minMessageVerbosity' => OutputInterface::VERBOSITY_VERBOSE,
