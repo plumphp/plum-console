@@ -117,6 +117,10 @@ $formatter = new ExceptionFormatter($output, [
 Change Log
 ----------
 
+### Version 0.5 (1 March 2016)
+
+- Add support for Symfony 3
+
 ### Version 0.4 (24 October 2015)
 
 - [#2](https://github.com/plumphp/plum-console/pull/2) Add helper to print nice exception messages
